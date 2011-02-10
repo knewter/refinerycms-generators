@@ -4,8 +4,8 @@ describe <%= class_name %> do
 
   def reset_<%= singular_name %>(options = {})
     @valid_attributes = {
-      :id => 1,
-      :title => "RSpec is great for testing too"
+      :id => 1<% if (title = attributes.detect { |a| a.type.to_s == "string" }).present? -%>,
+      :<%= title.name %> => "RSpec is great for testing too"<% end %>
     }
 
     @<%= singular_name %>.destroy! if @<%= singular_name %>
