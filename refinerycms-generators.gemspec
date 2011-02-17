@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name              = %q{refinerycms-generators}
-  s.version           = %q{0.9.9.3}
-  s.date              = %q{2011-02-07}
+  s.version           = %q{0.9.9.4}
+  s.date              = %q{2011-02-17}
   s.summary           = %q{Core generators for the Refinery CMS project.}
   s.description       = %q{Core generators for Refinery CMS including refinery_engine.}
   s.homepage          = %q{http://refinerycms.com}

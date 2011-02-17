@@ -18,7 +18,7 @@ end
 # Below is a hack until this issue:
 # https://rails.lighthouseapp.com/projects/8994/tickets/3820-make-railsgeneratorsmigrationnext_migration_number-method-a-class-method-so-it-possible-to-use-it-in-custom-generators
 # is fixed on the Rails project.
-
+require 'rails/generators'
 require 'rails/generators/named_base'
 require 'rails/generators/migration'
 require 'rails/generators/active_model'
