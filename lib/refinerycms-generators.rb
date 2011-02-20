@@ -1,9 +1,8 @@
 require 'refinery'
+require File.expand_path('../refinery/generators', __FILE__)
 
 module Refinery
   module Generators
-    autoload :EngineInstaller, File.expand_path('../refinery/generators', __FILE__)
-
     class Engine < Rails::Engine
       config.after_initialize do
         ::Refinery::Plugin.register do |plugin|

@@ -1,8 +1,8 @@
 class <%= class_name %> < ActiveRecord::Base
+<% if (string_attributes = attributes.map{ |attribute| attribute.name.to_sym if attribute.type.to_s =~ /string|text/ }.compact.uniq).any? %>
+  acts_as_indexed :fields => <%= string_attributes.inspect %>
 
-  acts_as_indexed :fields => [:<%= attributes.collect{ |attribute| attribute.name if attribute.type.to_s =~ /string|text/ }.compact.uniq.join(", :") %>]
-  <% if (title = attributes.detect { |a| a.type.to_s == "string" }).present? %>
-  validates :<%= title.name %>, :presence => true, :uniqueness => true
+  validates <%= string_attributes.first.inspect %>, :presence => true, :uniqueness => true
   <% else %>
   # def title was created automatically because you didn't specify a string field
   # when you ran the refinery_engine generator. Love, Refinery CMS.
