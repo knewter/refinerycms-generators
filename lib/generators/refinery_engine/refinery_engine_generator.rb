@@ -10,6 +10,17 @@ class RefineryEngineGenerator < Rails::Generators::NamedBase
   argument :attributes, :type => :array, :default => [], :banner => "field:type field:type"
 
   def generate
+    if singular_name == plural_name
+      puts ""
+      if singular_name.singularize != singular_name
+        puts "Please specify the singular name '#{singular_name.singularize}' instead of '#{plural_name}'."
+      else
+        puts "The engine name you specified will not work as the singular name is equal to the plural name."
+      end
+      puts ""
+      exit(1)
+    end
+
     unless attributes.empty? and self.behavior != :revoke
       if (engine = attributes.detect{|a| a.type.to_s == 'engine'}).present? and attributes.reject!{|a| a.type.to_s == 'engine'}.present?
         engine = engine.name.pluralize
