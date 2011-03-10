@@ -4,11 +4,12 @@ nb:
       title: <%= plural_name.titleize %>
   admin:
     <%= plural_name %>:
-      index:
-        title: <%= plural_name.titleize %>
+      actions:
         create_new: Lag en ny <%= singular_name.titleize %>
         reorder: Endre rekkefølgen på <%= singular_name.titleize.pluralize %>
         reorder_done: Ferdig å endre rekkefølgen <%= singular_name.titleize.pluralize %>
+      records:
+        title: <%= plural_name.titleize %>
         sorry_no_results: Beklager! Vi fant ikke noen resultater.
         no_items_yet: Det er ingen <%= singular_name.titleize.pluralize %> enda. Klikk på "Lag en ny <%= singular_name.titleize %>" for å legge til din første <%= singular_name.titleize.downcase %>.
       <%= singular_name %>:

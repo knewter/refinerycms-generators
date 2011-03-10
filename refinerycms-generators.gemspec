@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name              = %q{refinerycms-generators}
-  s.version           = %q{0.9.9.6}
-  s.date              = %q{2011-03-04}
+  s.version           = %q{1.0.0}
+  s.date              = %q{2011-03-10}
   s.summary           = %q{Core generators for the Refinery CMS project.}
   s.description       = %q{Core generators for Refinery CMS including refinery_engine.}
   s.homepage          = %q{http://refinerycms.com}
@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.authors           = ["Resolve Digital"]
   s.require_paths     = %w(lib)
 
-  #s.add_dependency    'refinerycms', '>= 0.9.9'
+  s.add_dependency    'refinerycms-core', '>= 0.9.9.7'
 
   s.files             = [
     'features',
@@ -35,8 +35,10 @@ Gem::Specification.new do |s|
     'lib/generators/refinery_engine/templates/app/views',
     'lib/generators/refinery_engine/templates/app/views/admin',
     'lib/generators/refinery_engine/templates/app/views/admin/plural_name',
+    'lib/generators/refinery_engine/templates/app/views/admin/plural_name/_actions.html.erb',
     'lib/generators/refinery_engine/templates/app/views/admin/plural_name/_form.html.erb',
     'lib/generators/refinery_engine/templates/app/views/admin/plural_name/_plural_name.html.erb',
+    'lib/generators/refinery_engine/templates/app/views/admin/plural_name/_records.html.erb',
     'lib/generators/refinery_engine/templates/app/views/admin/plural_name/_singular_name.html.erb',
     'lib/generators/refinery_engine/templates/app/views/admin/plural_name/_sortable_list.html.erb',
     'lib/generators/refinery_engine/templates/app/views/admin/plural_name/edit.html.erb',
