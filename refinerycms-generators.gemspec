@@ -1,15 +1,13 @@
 Gem::Specification.new do |s|
   s.name              = %q{refinerycms-generators}
   s.version           = %q{1.0.0}
-  s.date              = %q{2011-03-10}
+  s.date              = %q{2011-03-11}
   s.summary           = %q{Core generators for the Refinery CMS project.}
   s.description       = %q{Core generators for Refinery CMS including refinery_engine.}
   s.homepage          = %q{http://refinerycms.com}
   s.email             = %q{info@refinerycms.com}
   s.authors           = ["Resolve Digital"]
   s.require_paths     = %w(lib)
-
-  s.add_dependency    'refinerycms-core', '>= 0.9.9.7'
 
   s.files             = [
     'features',

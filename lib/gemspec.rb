@@ -17,8 +17,6 @@ Gem::Specification.new do |s|
   s.authors           = ["Resolve Digital"]
   s.require_paths     = %w(lib)
 
-  s.add_dependency    'refinerycms-core', '>= 0.9.9.7'
-
   s.files             = [
     '#{files.join("',\n    '")}'
   ]
