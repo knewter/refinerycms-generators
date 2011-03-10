@@ -8,8 +8,8 @@
           :include_object_name => true
         } %>
   <% attributes.each_with_index do |attribute, index| %>
-  <div class='field'>
 <% unless attribute.field_type.to_s == 'text_area' -%>
+  <div class='field'>
     <%%= f.label :<%= attribute.name %> -%>
 <% end -%>
 <% if attribute.type.to_s == 'image' -%>
@@ -26,29 +26,31 @@
           :resource => @<%= singular_name %>.<%= attribute.name.gsub("_id", "") %>,
         } %>
 <% elsif attribute.field_type.to_s == "text_area" and !generated_text_areas -%>
-    <div id='page-tabs' class='clearfix ui-tabs ui-widget ui-widget-content ui-corner-all'>
-      <ul id='page_parts'>
-        <%% <%= text_areas.map{|t| t.name.to_sym}.inspect -%>.each_with_index do |part, part_index| %>
-          <li class='ui-state-default<%%= ' ui-state-active' if part_index == 0 %>'>
-            <%%= link_to part.to_s.titleize, "##{part}" %>
-          </li>
-        <%% end %>
-      </ul>
+  <div id='page-tabs' class='clearfix ui-tabs ui-widget ui-widget-content ui-corner-all'>
+    <ul id='page_parts'>
+      <%% <%= text_areas.map{|t| t.name.to_sym}.inspect -%>.each_with_index do |part, part_index| %>
+      <li class='ui-state-default<%%= ' ui-state-active' if part_index == 0 %>'>
+        <%%= link_to part.to_s.titleize, "##{part}" %>
+      </li>
+      <%% end %>
+    </ul>
 
-      <div id='page_part_editors'>
-        <%% <%= text_areas.map{|t| t.name.to_sym}.inspect -%>.each do |part| %>
-          <div class='page_part' id='<%%= part %>'>
-            <%%= f.text_area part, :rows => 20, :class => 'wymeditor widest' -%>
-          </div>
-        <%% end %>
+    <div id='page_part_editors'>
+      <%% <%= text_areas.map{|t| t.name.to_sym}.inspect -%>.each do |part| %>
+      <div class='page_part' id='<%%= part %>'>
+        <%%= f.text_area part, :rows => 20, :class => 'wymeditor widest' -%>
       </div>
+      <%% end %>
     </div>
+  </div>
 <% generated_text_areas = true -%>
-<% else -%>
+<% elsif attribute.field_type.to_s != "text_area" -%>
     <%%= f.<%= attribute.field_type -%> :<%= attribute.name -%><%= ", :class => 'larger widest'" if (index == 0 && attribute.field_type == :text_field) -%> -%>
 <% end -%>
+<% unless attribute.field_type.to_s == 'text_area' -%>
   </div>
-  <% end %>
+<% end -%>
+  <% end -%>
   <%%= render :partial => "/shared/admin/form_actions",
               :locals => {
                 :f => f,
@@ -56,7 +58,7 @@
                 :delete_title => t('delete', :scope => 'admin.<%= plural_name %>.<%= singular_name %>'),
                 :delete_confirmation => t('message', :scope => 'shared.admin.delete'<% if (title = attributes.detect { |a| a.type.to_s == "string" }).present? %>, :title => @<%= singular_name %>.<%= title.name %><% end %>)
               } %>
-<%% end -%>
+  <%% end -%>
 <% if text_areas.any? -%>
 <%% content_for :javascripts do %>
   <script>
@@ -64,5 +66,5 @@
       page_options.init(false, '', '');
     });
   </script>
-<%% end %>
+<%% end -%>
 <% end -%>
