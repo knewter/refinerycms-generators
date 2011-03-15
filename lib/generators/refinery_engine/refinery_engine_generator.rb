@@ -10,6 +10,14 @@ class RefineryEngineGenerator < Rails::Generators::NamedBase
   argument :attributes, :type => :array, :default => [], :banner => "field:type field:type"
 
   def generate
+    clash_file = Pathname.new(File.expand_path('../clash_keywords.yml', __FILE__))
+    clash_keywords = File.open(clash_file) { |f| doc = YAML.load(f) }
+    if clash_keywords.member?(singular_name.downcase)
+      puts "Please choose a different name.  Generated code would fail for class '#{singular_name}'"
+      puts ""
+      exit(1)
+    end
+    
     if singular_name == plural_name
       puts ""
       if singular_name.singularize != singular_name
