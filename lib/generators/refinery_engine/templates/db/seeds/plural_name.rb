@@ -1,5 +1,5 @@
-User.find(:all).each do |user|
-  if user.plugins.find_by_name('<%= class_name.pluralize.underscore.downcase %>').nil?
+User.all.each do |user|
+  if user.plugins.where(:name => '<%= class_name.pluralize.underscore.downcase %>').blank?
     user.plugins.create(:name => '<%= class_name.pluralize.underscore.downcase %>',
                         :position => (user.plugins.maximum(:position) || -1) +1)
   end

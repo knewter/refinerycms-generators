@@ -20,11 +20,11 @@ class <%= class_name.pluralize %>Controller < ApplicationController
 protected
 
   def find_all_<%= plural_name %>
-    @<%= "all_" if plural_name == singular_name %><%= plural_name %> = <%= class_name %>.find(:all, :order => "position ASC")
+    @<%= "all_" if plural_name == singular_name %><%= plural_name %> = <%= class_name %>.order('position ASC')
   end
 
   def find_page
-    @page = Page.find_by_link_url("/<%= plural_name %>")
+    @page = Page.where(:link_url => "/<%= plural_name %>").first
   end
 
 end
