@@ -68,3 +68,10 @@ Now you have a fully managed products section in Refinery, nice.
 If you want to modify your generated engine you need to understand the basic structure of how they work.
 
 See: [The Structure of an Engine](http://github.com/resolve/refinerycms/blob/master/vendor/refinerycms/core/engines.md)
+
+## Nesting Engines: Generating Engines Inside Engines
+
+Say you have an existing Products engine and you wanted to add a Categories engine inside it so the projects can be sorted in categories.
+
+    rails generate refinery_engine category title:string product:engine
+
