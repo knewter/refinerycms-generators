@@ -1,4 +1,4 @@
-require 'refinery'
+require 'refinerycms-base'
 require File.expand_path('../refinery/generators', __FILE__)
 
 module Refinery

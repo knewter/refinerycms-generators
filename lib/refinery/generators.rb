@@ -1,4 +1,4 @@
-require 'refinery'
+require 'refinerycms-base'
 require 'pathname'
 
 module Refinery
