@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
     'lib/gemspec.rb',
     'lib/generators',
     'lib/generators/refinery_engine',
+    'lib/generators/clash_keywords.yml',
     'lib/generators/refinery_engine/refinery_engine_generator.rb',
     'lib/generators/refinery_engine/templates',
     'lib/generators/refinery_engine/templates/app',
