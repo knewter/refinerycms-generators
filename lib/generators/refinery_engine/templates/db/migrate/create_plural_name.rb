@@ -23,9 +23,13 @@ class Create<%= class_name.pluralize %> < ActiveRecord::Migration
   end
 
   def self.down
-    UserPlugin.destroy_all({:name => "<%= class_name.pluralize.underscore.downcase %>"})
+    if defined?(UserPlugin)
+      UserPlugin.destroy_all({:name => "<%= class_name.pluralize.underscore.downcase %>"})
+    end
 
-    Page.delete_all({:link_url => "/<%= plural_name %>"})
+    if defined?(Page)
+      Page.delete_all({:link_url => "/<%= plural_name %>"})
+    end
 
     drop_table :<%= table_name %>
   end
