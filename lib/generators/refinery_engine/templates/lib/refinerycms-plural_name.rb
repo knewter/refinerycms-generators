@@ -12,8 +12,8 @@ module Refinery
           plugin.name = "<%= class_name.pluralize.underscore.downcase %>"
           plugin.activity = {
             :class => <%= class_name %><% if (title = attributes.detect { |a| a.type.to_s == "string" }).present? and title.name != 'title' %>,
-            :title => '<%= title.name %>'
-          <% end %>}
+            :title => '<%= title.name %>'<% end %>
+          }
         end
       end
     end
