@@ -67,7 +67,7 @@ Now you have a fully managed products section in Refinery, nice.
 
 If you want to modify your generated engine you need to understand the basic structure of how they work.
 
-See: [The Structure of an Engine](http://github.com/resolve/refinerycms/blob/master/vendor/refinerycms/core/engines.md)
+See: [The Structure of an Engine](https://github.com/resolve/refinerycms/blob/master/doc/engines.md)
 
 ## Nesting Engines: Generating Engines Inside Engines
 
