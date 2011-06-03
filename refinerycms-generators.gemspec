@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name              = %q{refinerycms-generators}
-  s.version           = %q{1.0.1}
-  s.date              = %q{2011-03-24}
+  s.version           = %q{1.0.2}
+  s.date              = %q{2011-06-03}
   s.summary           = %q{Core generators for the Refinery CMS project.}
   s.description       = %q{Core generators for Refinery CMS including refinery_engine.}
   s.homepage          = %q{http://refinerycms.com}
@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
     'lib/gemspec.rb',
     'lib/generators',
     'lib/generators/refinery_engine',
-    'lib/generators/clash_keywords.yml',
+    'lib/generators/refinery_engine/clash_keywords.yml',
     'lib/generators/refinery_engine/refinery_engine_generator.rb',
     'lib/generators/refinery_engine/templates',
     'lib/generators/refinery_engine/templates/app',
@@ -49,6 +49,7 @@ Gem::Specification.new do |s|
     'lib/generators/refinery_engine/templates/config',
     'lib/generators/refinery_engine/templates/config/locales',
     'lib/generators/refinery_engine/templates/config/locales/en.yml',
+    'lib/generators/refinery_engine/templates/config/locales/fr.yml',
     'lib/generators/refinery_engine/templates/config/locales/lolcat.yml',
     'lib/generators/refinery_engine/templates/config/locales/nb.yml',
     'lib/generators/refinery_engine/templates/config/locales/nl.yml',
