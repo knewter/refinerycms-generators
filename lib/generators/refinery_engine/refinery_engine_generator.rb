@@ -17,7 +17,7 @@ class RefineryEngineGenerator < Rails::Generators::NamedBase
       puts ""
       exit(1)
     end
-    
+
     if singular_name == plural_name
       puts ""
       if singular_name.singularize != singular_name
@@ -76,6 +76,10 @@ class RefineryEngineGenerator < Rails::Generators::NamedBase
           end
           # write to current file the merged results.
           current_path.open('w+') { |f| f.puts new_contents } unless new_contents.nil?
+        end
+
+        if File.exist?(lib_file = engine_path_for(File.expand_path("../templates/lib/refinerycms-#{engine.pluralize}.rb", __FILE__), engine))
+          append_file lib_file, "require File.expand_path('../refinerycms-#{plural_name}', __FILE__)"
         end
 
         tmp_directories.uniq.each{|d| d.rmtree unless d.nil? or !d.exist?}
