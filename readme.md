@@ -2,7 +2,7 @@
 
 ## Dependencies
 
-This version is targeted at RefineryCMS versions 1.0.0 and higher. Before that,
+This version is targeted at RefineryCMS versions 1.1.0 and higher. Before that,
 these were built in but we've extracted them to provide greater flexibility for
 all future versions.
 
